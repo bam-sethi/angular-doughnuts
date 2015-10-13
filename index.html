@@ -9,29 +9,28 @@
     <script src="js/doughnutsController.js" charset="utf-8"></script>
 </head>
 <body ng-controller="DoughnutController as donuts">
+
   <h1>Doughnut Mind Control</h1>
   <p>{{ donuts.name }}</p>
 
   <ul>
-    <li ng-repeat="donut in donuts.all"><strong>{{ donut.style}} </strong><em> {{ donut.flavor }}</em></li>
+    <li ng-repeat="donut in donuts.all">
+      <strong>{{ donut.style}} </strong>
+      <em> {{ donut.flavor }}</em>
+      <button type="submit" class="status" ng-click="donuts.deleteDoughnut(donut)">X</button>
+    </li>
   </ul>
   
-  <form ng-submit="donuts.addDoughnuts()">
+  <form ng-submit="donuts.addDoughnut()" id="new-donut">
 
     <label for="donut-style">style:</label>
     <input type="text" name="donut-style" id="donut-style" ng-model="donuts.newDoughnut.style" placeholder="Classic-Stylee" >
 
-    <label for="donut-flavor">flavor:</label>
+    <label for="donut-flavor">flavour:</label>
     <input type="text" name="donut-flavor" id="donut-flavor" ng-model="donuts.newDoughnut.flavor" placeholder="Vanilla-Cheecake">
     
     <input type="submit" value="Add Doughnut">
-
   </form>
-
-
-
-
-
 
 
 </body>
